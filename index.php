@@ -32,12 +32,11 @@
     <section class="profil">
         <div class="profil-container">
             <div class="profil-left-container">
-                <img src="./imgs/question.jpg" alt="point d'interrogation">
+                <img id="question" src="./imgs/question.jpg" alt="point d'interrogation">
             </div>
             <div class="profil-right-container">
                 <h2>Qui suis-je ?</h2>
-                <p id="autotext"></p>
-                <p id="text">Hello, Je suis Ahmed, Développeur Web , motivé par les nouvelles technologies et leurs facultés à améliorer la productivité des entreprises.</p>
+                <p >Hello, Je suis Ahmed, Développeur Web , motivé par les nouvelles technologies et leurs facultés à améliorer la productivité des entreprises.</p>
             </div>
         </div>
     </section>

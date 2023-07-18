@@ -175,7 +175,7 @@ h1 {
 
 .profil {
  background-color: #E5E5E5;
- margin-top: 50px;
+ margin-top: 150px;
 }
 .profil-left-container {
   height: 70vh;
@@ -187,9 +187,13 @@ h1 {
   padding-top: 100px;
   width: 40%;
   height: 70vh;
+  opacity: 0;
+  transform: translateX(-40%);
+  transition: 1s ease-in;
 }
 .profil img {
   height: 350px;
+  
 }
 .profil-container {
   display: flex;
