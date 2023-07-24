@@ -13,11 +13,11 @@
 
     <nav>
         <ul class="navbar">
-            <li class="active"><a href="">Accueil</a></li>
-            <li><a href="#">Profil</a></li>
-            <li><a href="#">Compétences</a></li>
-            <li><a href="#">Projets</a></li>
-            <li><a href="#">Contact</a></li>
+            <li class="active"><a href="#accueil">Accueil</a></li>
+            <li><a href="#profil">Profil</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="main-navlinks">
             <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false">
@@ -28,28 +28,28 @@
         </div>
     </nav>
 
-    <section class="accueil">
-        <div class="accueil-left-Container">
-            <h1></h1>
+    <section id="accueil" class="accueil">
+        <div class="accueil-left-container">
+            <h1 id="typewriter-text"></h1>
         </div>
         <div class="accueil-right-container">
             <img src="./imgs/ordinateur.jpg" alt="ordinateur">
         </div>
     </section>
 
-    <section class="profil">
+    <section id="profil" class="profil">
         <div class="profil-container">
             <div class="profil-left-container">
                 <img id="question" src="./imgs/question.jpg" alt="point d'interrogation">
             </div>
             <div class="profil-right-container">
                 <h2>Qui suis-je ?</h2>
-                <p>Hello, Je suis Ahmed, Développeur Web, motivé par les nouvelles technologies et leurs facultés à améliorer la productivité des entreprises.</p>
+                <p>Hello, Je suis Ahmed, Développeur Web, motivé par les nouvelles technologies et leurs facultés à améliorer la productivité des entreprises. J'apprécie particulièrement concevoir des sites web performants, visant à offrir une expérience utilisateur agréable. Je m'efforce de rester à jour sur les dernières tendances et technologies émergentes, en intégrant continuellement les meilleures pratiques dans mes projets.</p>
             </div>
         </div>
     </section>
 
-    <section class="competences">
+    <section id="competences" class="competences">
         <div class="competences-container">
             <div class="competences-left-container">
                 <h2>Mes compétences</h2>
@@ -80,47 +80,44 @@
         </div>
     </section>
 
-    <section class="projets">
+    <section id="projets" class="projets">
         <div class="projets-container">
-                <h2>Mes projets</h2>
-                <div class="cards-container">
-                    <div class="card-wrapper">
-                        <div class="card">
-                            <div class="card-front" id="jadoo">
-                                <i class="arrow-icon fas fa-arrow-right"></i>
-                            </div>
-                            <div class="card-back">
-                                <a href="" class="btn">Voir le site</a>
-                            </div>
+            <h2>Mes projets</h2>
+            <div class="cards-container">
+                <div class="card-wrapper">
+                    <div class="card">
+                        <div class="card-front" id="jadoo">
                         </div>
-                    </div>
-                    <div class="card-wrapper">
-                        <div class="card">
-                            <div class="card-front" id="agence-de-voyage">
-                                <img src="" alt="">
-                                <i class="arrow-icon fas fa-arrow-right"></i>
-                            </div>
-                            <div class="card-back">
-                                <a href="" class="btn">Voir le site</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-wrapper">
-                        <div class="card">
-                            <div class="card-front" id="catalogue">
-                                <img src="" alt="">
-                                <i class="arrow-icon fas fa-arrow-right"></i>
-                            </div>
-                            <div class="card-back">
-                                <a href="" class="btn">Voir le site</a>
-                            </div>
+                        <div class="card-back">
+                            <a href="" class="btn">Voir le site</a>
                         </div>
                     </div>
                 </div>
+                <div class="card-wrapper">
+                    <div class="card">
+                        <div class="card-front" id="agence-de-voyage">
+                            <img src="" alt="">
+                        </div>
+                        <div class="card-back">
+                            <a href="" class="btn">Voir le site</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-wrapper">
+                    <div class="card">
+                        <div class="card-front" id="catalogue">
+                            <img src="" alt="">
+                        </div>
+                        <div class="card-back">
+                            <a href="" class="btn">Voir le site</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="contact">
+    <section id="contact" class="contact">
         <div class="contact-container">
             <div class="contact-container">
 
