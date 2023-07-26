@@ -174,10 +174,6 @@ h2 {
 .navbar li a:hover::after {
   transform: scaleX(1);
 }
-.navbar li.active a {
-  color: #e55e34;
-  font-weight: bold;
-}
 .hamburger {
   display: none;
 }
@@ -344,24 +340,7 @@ h1 {
 .card-front {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-#jadoo {
-  background: url(./imgs/jadoo.png);
-  background-position: center;
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
-#agence-de-voyage {
-  background: url(./imgs/agence-de-voyage.png);
-  background-position: center;
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
-#catalogue {
-  background: url(./imgs/catalogue.png);
-  background-position: center;
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
+
 .arrow-icon {
   position: absolute;
   right: 30px;
@@ -371,8 +350,14 @@ h1 {
   background: #f0f0f0;
   transform: rotateY(180deg);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+  font-family: "Architects Daughter", cursive;
+}
+.card-back img {
+  height: 100%;
 }
 .card-back a {
   display: inline-block;

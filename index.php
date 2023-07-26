@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Portfolio</title>
 </head>
 
@@ -80,39 +80,34 @@
         </div>
     </section>
 
+    <?php
+    require_once('connect.php');
+
+    $sql = "SELECT * FROM works";
+
+    $query = $db->prepare($sql);
+    $query->execute();
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    ?>
     <section id="projets" class="projets">
         <div class="projets-container">
             <h2>Mes projets</h2>
             <div class="cards-container">
-                <div class="card-wrapper">
-                    <div class="card">
-                        <div class="card-front" id="jadoo">
-                        </div>
-                        <div class="card-back">
-                            <a href="" class="btn">Voir le site</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-wrapper">
-                    <div class="card">
-                        <div class="card-front" id="agence-de-voyage">
-                            <img src="" alt="">
-                        </div>
-                        <div class="card-back">
-                            <a href="" class="btn">Voir le site</a>
+                <?php foreach ($result as $works) { ?>
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="card-front" id="projet-<?= $works['id'] ?>">
+                                <img src="<?= $works['image'] ?>" alt="" style="width: 100%;" >
+                            </div>
+                            <div class="card-back">
+                                <h4><?= $works['nom'] ?></h4>
+                                <p><?= $works['description'] ?></p>
+                                <a href="<?=$works['url'] ?>" class="btn">Voir le site</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card-wrapper">
-                    <div class="card">
-                        <div class="card-front" id="catalogue">
-                            <img src="" alt="">
-                        </div>
-                        <div class="card-back">
-                            <a href="" class="btn">Voir le site</a>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </section>
@@ -159,7 +154,7 @@
 
 
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-    <script src="script.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
