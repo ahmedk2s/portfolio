@@ -98,7 +98,7 @@
                     <div class="card-wrapper">
                         <div class="card">
                             <div class="card-front" id="projet-<?= $works['id'] ?>">
-                                <img src="<?= $works['image'] ?>" alt="" style="width: 100%;" >
+                                <img src="<?= $works['image'] ?>" alt="" style="width: 100%;">
                             </div>
                             <div class="card-back">
                                 <h4><?= $works['nom'] ?></h4>
@@ -117,26 +117,26 @@
             <div class="contact-container">
 
                 <div class="contact-left-container">
-                    <form action="">
+                    <form action="contact.php" method="POST">
                         <h3>Contactez-moi</h3>
                         <div class="separation"></div>
                         <div class="main-form">
                             <div class="part-left">
                                 <div class="box">
-                                    <label for="">Votre prénom</label>
-                                    <input type="text">
+                                    <label for="">Votre nom</label>
+                                    <input type="text" name="surname">
                                     <i class="fa-solid fa-user"></i>
                                 </div>
                                 <div class="box">
                                     <label for="">Votre adresse e-mail</label>
-                                    <input type="text">
+                                    <input type="text" name="email">
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
                             </div>
                             <div class="part-right">
                                 <div class="box">
                                     <label for="">Message</label>
-                                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                                    <textarea name="message" id="" cols="30" rows="10"></textarea>
                                 </div>
                             </div>
                         </div>

@@ -172,7 +172,7 @@ session_start();
                             <td><?= $works['id'] ?></td>
                             <td><?= $works['nom'] ?></td>
                             <td><?= $works['description'] ?></td>
-                            <td><img class="img img-fluid" style="width: 155rem;" src="<?= $works['image'] ?>" alt=""></td>
+                            <td style="width: 30rem;"><img class="img img-fluid" style="width: 30rem;" src="<?= $works['image'] ?>" alt=""></td>
                             
                             <td>
                             <a href="update.php?id=<?= $works['id'] ?>"><button type="button" class="btn btn-primary">EDIT</button></a>

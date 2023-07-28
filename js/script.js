@@ -42,49 +42,65 @@ window.addEventListener("scroll", () => {
 
   
 
-const hamburgerToggler = document.querySelector(".hamburger");
-const navbarContainer = document.querySelector(".navbar");
-
-const toggleNav = e => {
-    hamburgerToggler.classList.toggle("open")
-    
-    const ariaToggle = hamburgerToggler.getAttribute ("aria-expanded") === "true" ? "false" : "true";
-    hamburgerToggler.setAttribute("aria-expanded", ariaToggle);
-
-    navbarContainer.classList.toggle("show");
-    const mainContent = document.querySelector('.main-content');
-      mainContent.classList.toggle('show');
-};
-hamburgerToggler.addEventListener("click", toggleNav);
-
-new ResizeObserver(entries => {
-    if(entries[0].contentRect.width <= 700){
-        navbarContainer.style.transition = "transform 0.3s ease-out"
-    } else {
-        navbarContainer.style.transition = "none"
-    }
-}).observe(document.body)
-
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const navbar = document.querySelector(".navbar");
-    const contentWrapper = document.querySelector(".content-wrapper");
-    const headerHeight = navbar.offsetHeight;
+  const hamburgerToggler = document.querySelector(".hamburger");
+  const navbarContainer = document.querySelector(".navbar");
   
-    function updateNavbar() {
-      if (window.pageYOffset >= headerHeight) {
-        navbar.classList.add("sticky");
-        contentWrapper.style.paddingTop = `${headerHeight}px`;
+  const toggleNav = e => {
+      hamburgerToggler.classList.toggle("open")
+      
+      const ariaToggle = hamburgerToggler.getAttribute ("aria-expanded") === "true" ? "false" : "true";
+      hamburgerToggler.setAttribute("aria-expanded", ariaToggle);
+  
+      navbarContainer.classList.toggle("show");
+      const mainContent = document.querySelector('.main-content');
+        mainContent.classList.toggle('show');
+  };
+  hamburgerToggler.addEventListener("click", toggleNav);
+  navbarContainer.addEventListener("click", toggleNav);
+  
+  // new ResizeObserver(entries => {
+  //     if(entries[0].contentRect.width <= 700){
+  //         navbarContainer.style.transition = "transform 0.3s ease-out"
+  //     } else {
+  //         navbarContainer.style.transition = "none"
+  //     }
+  // }).observe(document.body)
+  
+
+
+
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     const navbar = document.querySelector(".navbar");
+//     const headerHeight = navbar.offsetHeight;
+  
+//     function updateNavbar() {
+//       if (window.pageYOffset >= headerHeight) {
+//         navbar.classList.add("sticky");
+//       } else {
+//         navbar.classList.remove("sticky");
+//       }
+//     }
+//     updateNavbar(); 
+//     window.addEventListener("scroll", updateNavbar);
+//   });
+  
+
+  const navLinks = document.querySelectorAll('li a');
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+  
+    navLinks.forEach(link => {
+      const section = document.querySelector(link.getAttribute('href'));
+      if (section.offsetTop <= currentScroll && section.offsetTop + section.offsetHeight > currentScroll) {
+        navLinks.forEach(link => link.parentElement.classList.remove('active'));
+        link.parentElement.classList.add('active');
       } else {
-        navbar.classList.remove("sticky");
-        contentWrapper.style.paddingTop = "0";
+        link.parentElement.classList.remove('active');
       }
-    }
-  
-    updateNavbar(); 
-  
-    window.addEventListener("scroll", updateNavbar);
+    });
   });
+  
+  
   
