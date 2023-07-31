@@ -1,23 +1,29 @@
 <?php
-    require_once(__DIR__.'/vendor/autoload.php');
-    use \Mailjet\Ressources;
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $nom = $_POST["surname"];
+    $email = $_POST["email"];
+    $message = $_POST["message"];
 
-    define('API_USER', '');
-    define('API_LOGIN', '');
-    
+    // Mettez ici votre adresse e-mail où vous souhaitez recevoir les messages du formulaire
+    $destination_email = "ahmed_k@laposte.net";
 
-    if (!empty($_POST['surname']) && !empty($_POST['email']) && !empty($_POST['message'])) {
-        $surname = htmlspecialchars($_POST['surname']);
-        $email = htmlspecialchars($_POST['email']);
-        $message = htmlspecialchars($_POST['message']);
+    $sujet = "Nouveau message du formulaire de contact";
+    $contenu .= "Nom: $nom\n";
+    $contenu .= "Email: $email\n";
+    $contenu .= "Message:\n$message\n";
 
-        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+    // En-têtes pour l'envoi de l'e-mail
+    $headers = "From: $email" . "\r\n" .
+        "Reply-To: $email" . "\r\n" .
+        "X-Mailer: PHP/" . phpversion();
 
-        }else{
-            echo "Email non valide";
-        }
+    // Envoi de l'e-mail
+    mail($destination_email, $sujet, $contenu, $headers);
 
-    }else{
-        header('Location:index.php');
-        die();
-    }
+    // Redirection vers la page de confirmation
+    header("Location: index.php");
+    exit();
+}
+?>
+
+

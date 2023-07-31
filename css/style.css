@@ -485,6 +485,7 @@ h1 {
   transform: scale(1.05);
 }
 
+
 @media (max-width: 1247px) {
   section {
    height: 500px;

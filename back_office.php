@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if (!isset($_SESSION["user"])) {
+    header("Location: login.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 
@@ -18,6 +23,11 @@ session_start();
 <body>
 
     <h1 class="merriweather text-center mb-4 py-5">GESTION DES PROJETS</h1>
+ 
+
+
+
+
 
     <!-- ---------------------------------- ADD MODAL ------------------------------------------>
 
@@ -76,7 +86,7 @@ session_start();
         }
         if ($query) {
             $_SESSION['confirmation'] = "Produit a été ajouté avec succès";
-            
+  3          
         } else {
             $_SESSION['confirmation'] = "Erreur";
             
@@ -130,9 +140,10 @@ session_start();
             <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#addModal">
                 AJOUTER
             </button>
-            <a href="index.php"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+            <a href="index.php"><button type="button" class="btn btn-primary mx-3" data-bs-toggle="modal" data-bs-target="#addModal">
                 RETOUR 
             </button></a>
+            <a href="deconnexion.php" class="btn btn-primary">Déconnexion</a>
         </div>
         
     

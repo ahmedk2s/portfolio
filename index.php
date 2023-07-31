@@ -18,6 +18,7 @@
             <li><a href="#competences">Compétences</a></li>
             <li><a href="#projets">Projets</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="login.php">Admin</a></li>
         </ul>
         <div class="main-navlinks">
             <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false">
@@ -124,24 +125,24 @@
                             <div class="part-left">
                                 <div class="box">
                                     <label for="">Votre nom</label>
-                                    <input type="text" name="surname">
+                                    <input type="text" name="surname" required>
                                     <i class="fa-solid fa-user"></i>
                                 </div>
                                 <div class="box">
                                     <label for="">Votre adresse e-mail</label>
-                                    <input type="text" name="email">
+                                    <input type="text" name="email" required>
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
                             </div>
                             <div class="part-right">
                                 <div class="box">
                                     <label for="">Message</label>
-                                    <textarea name="message" id="" cols="30" rows="10"></textarea>
+                                    <textarea name="message" id="" cols="30" rows="10" required></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="footer-form">
-                            <button>Envoyer</button>
+                            <button type="submit">Envoyer</button>
                         </div>
                     </form>
                 </div>

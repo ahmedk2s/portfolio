@@ -6,44 +6,49 @@ session_start();
 // Vérifier si le formulaire a été soumis
 if (!empty($_POST)) {
 
-  // Vérifier si les champs "login" et "password" sont renseignés
+  // Vérifier si les champs "email" et "pass" sont renseignés
   if (isset($_POST["email"], $_POST["pass"]) && !empty($_POST["email"]) && !empty($_POST["pass"])) {
+
+    if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+      die("Ce n'est pas un email");
+    }
 
     // Connecter à la base de données
     require_once("connect.php");
 
     // Exécuter la requête SQL
-    $sql = "SELECT * FROM user WHERE email = :email AND pass = :pass";
+    $sql = "SELECT * FROM user WHERE email = :email";
     $query = $db->prepare($sql);
-    $query->bindValue(":email", $_POST["email"]);
-    $query->bindValue(":pass", $_POST["pass"]);
+    $query->bindValue(":email", $_POST["email"], PDO::PARAM_STR);
     $query->execute();
 
     // Récupérer l'utilisateur
     $user = $query->fetch();
 
     // Vérifier si l'utilisateur existe
-    if ($user) {
-
-      // Créer une session
-      $_SESSION["user"] = $user;
-
-      // Rediriger vers la page de l'espace membre
-      header("Location: back_office.php");
-      exit();
-    } else {
-
-      // Afficher un message d'erreur
-    //   echo "L'utilisateur et/ou le mot de passe est incorrect";
-    echo "<script>alert('Pas bon')</script";
+    if (!$user) {
+      die("L'utilisateur et/ou le mot de passe est incorrect");
     }
-  } else {
 
-    // Afficher un message d'erreur
-    echo "Veuillez remplir tous les champs";
+    // Vérifier le mot de passe haché
+    if (!password_verify($_POST["pass"], $user["pass"])) {
+      die("L'utilisateur et/ou le mot de passe est incorrect");
+    }
+
+    // Si tout est correct, enregistrer les informations de l'utilisateur dans la session
+    $_SESSION["user"] = [
+      "id" => $user["id"],
+      "last_name" => $user["surname"],
+      "email" => $user["email"]
+    ];
+
+    // Rediriger vers la page de l'espace membre
+    header("Location: back_office.php");
+    exit(); // Assurez-vous d'ajouter exit() après la redirection pour arrêter l'exécution du script.
   }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
