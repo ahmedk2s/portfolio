@@ -85,13 +85,12 @@ if (!isset($_SESSION["user"])) {
             $query->execute();
         }
         if ($query) {
-            $_SESSION['confirmation'] = "Produit a été ajouté avec succès";
-  3          
+            $_SESSION['confirmation'] = "Produit a été ajouté avec succès";         
         } else {
             $_SESSION['confirmation'] = "Erreur";
             
         }
-    }
+    };
     include('confirmation.php'); 
     ?>
 
