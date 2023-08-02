@@ -194,7 +194,12 @@ section {
   padding-top: 150px;
 }
 .accueil-right-container {
-  width: 40%;
+  width: 50%;
+  padding-right: 10%;
+}
+.accueil-left-container {
+  width: 50%;
+ 
 }
 .accueil img {
   height: 400px;
